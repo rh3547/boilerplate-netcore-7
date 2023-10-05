@@ -1,0 +1,10 @@
+using Nukleus.Application.Common.Persistence;
+using Nukleus.Domain.Entities;
+
+namespace Nukleus.Application.{{entityName}}Module
+{
+    public interface I{{entityName}}Service : IService<{{entityName}}>
+    {
+
+    }
+}

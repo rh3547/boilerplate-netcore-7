@@ -1,0 +1,548 @@
+{
+	"info": {
+		"_postman_id": "e6e7733b-b9c6-4af4-b1be-9ee6b938d030",
+		"name": "Nukleus Boilerplate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26105397"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/User?pageSize=10&page=1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"User"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "include",
+									"value": "[\"account\"]",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/User/:id?include=[\"account\"]",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"User",
+								":id"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "[\"account\"]"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e490831e-249f-452f-911e-ffc8cd3bf7e6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": [\r\n        {\r\n            \"comparator\": \"contains\",\r\n            \"value\": \"te\"\r\n        },\r\n        {\r\n            \"operator\": \"or\",\r\n            \"comparator\": \"contains\",\r\n            \"value\": \"st\"\r\n        }\r\n    ],\r\n    \"age\": [\r\n        {\r\n            \"operator\": \"and\",\r\n            \"comparator\": \">=\",\r\n            \"value\": 18\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/User/Search?pageSize=10&page=1&include=[\"account\"]",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"User",
+								"Search"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "include",
+									"value": "[\"account\"]"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Test\",\r\n  \"lastName\": \"User\",\r\n  \"age\": 45,\r\n  \"email\": \"test@example.com\",\r\n  \"username\": \"testuser\",\r\n  \"password\": \"P@sword1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/User",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"300d00f4-3d83-4b02-ab5c-26b307352332\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"Changed\",\r\n    \"age\": 18,\r\n    \"email\": \"test@example.com\",\r\n    \"username\": \"testuser\",\r\n    \"password\": \"P@sword1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/User",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": \"1bf0a9fc-d638-45c0-86fc-9f64d32c7cb7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/User/:id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"User",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e490831e-249f-452f-911e-ffc8cd3bf7e6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/User/:id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"User",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "08931ad0-041d-4f11-ae83-1fed782553cf"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/User/CheckEmail/:email",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"User",
+								"CheckEmail",
+								":email"
+							],
+							"variable": [
+								{
+									"key": "email",
+									"value": "test@example.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/User/CheckUsername/:username",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"User",
+								"CheckUsername",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "testuser"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Get All Accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/Account?pageSize=10&page=1&include=[\"users\", \"ownerUser\"]",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"Account"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "include",
+									"value": "[\"users\", \"ownerUser\"]"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAccountById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/Account/:id?include=[\"users\",\"ownerUser\"]",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"Account",
+								":id"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "[\"users\",\"ownerUser\"]"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1bf0a9fc-d638-45c0-86fc-9f64d32c7cb7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Accounts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": [\r\n        {\r\n            \"comparator\": \"contains\",\r\n            \"value\": \"Acc\"\r\n        },\r\n        {\r\n            \"operator\": \"and\",\r\n            \"comparator\": \"contains\",\r\n            \"value\": \"1\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/Account/Search?pageSize=10&page=1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"Account",
+								"Search"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "include",
+									"value": "[\"users\"]",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Account 1\",\r\n  \"ownerUserId\": \"e490831e-249f-452f-911e-ffc8cd3bf7e6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/Account",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"Account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Test\",\r\n  \"lastName\": \"User\",\r\n  \"age\": 25,\r\n  \"email\": \"test@user.com\",\r\n  \"username\": \"testuser\",\r\n  \"password\": \"P@ssword1\",\r\n  \"accountName\": \"Test Account\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/Account/new",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"Account",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"372f0ec1-0c69-4119-84cb-95fdcb372044\",\r\n    \"name\": \"Account 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/Account",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"Account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Account",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"OwnerUserId\": \"1424c768-840c-4abe-a600-f97d29acc104\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/Account/:id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"Account",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3243f6ea-9197-433d-a7c8-dae92751182b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/Account/:id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"Account",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "bcff704d-dc06-41bf-bf1f-76f6b2b87842"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "https://localhost:7002",
+			"type": "string"
+		}
+	]
+}

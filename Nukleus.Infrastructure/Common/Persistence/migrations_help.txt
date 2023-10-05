@@ -1,0 +1,40 @@
+Update EF Tools
+dotnet tool update --global dotnet-ef
+https://learn.microsoft.com/en-us/ef/core/cli/dotnet
+
+Install EF
+
+
+------------------
+dotnet ef migrations add Initial_Create --project Nukleus.Infrastructure --startup-project Nukleus.API --context NukleusDbContext
+dotnet ef database update --project Nukleus.Infrastructure --startup-project Nukleus.API --context NukleusDbContext
+------------------
+
+dotnet ef migrations add Initial_Create -o Common/Persistence/Migrations --project Nukleus.Infrastructure --startup-project Nukleus.API --context NukleusDbContext
+dotnet ef migrations remove --project Nukleus.Infrastructure --startup-project Nukleus.API --context NukleusDbContext
+
+
+EF Migrations
+dotnet ef migrations add NAMEOFMIGRATION --context NameOfDBContext
+
+Push all / latest migration(s)
+dotnet ef database update --project Nukleus.Infrastructure --startup-project Nukleus.API --context NukleusDbContext
+
+unapply and remove last migration
+dotnet ef migrations remove --force
+
+remove last migration (do if changes are not pushed. Need to revert pushed migration prior to removal)
+dotnet ef migrations remove --context NameOfDBContext
+
+revert all changes after migration NAME
+dotnet ef database update NAME --context NameOfDBContext
+
+to remove all migrations and start over
+dotnet ef database update 0
+dotnet ef migrations remove
+
+
+Remove and Regenerate and Push last migration
+dotnet ef migrations remove --force --context NameOfDBContext
+dotnet ef migrations add NAME --context NameOfDBContext
+dotnet ef database update --context NameOfDBContext

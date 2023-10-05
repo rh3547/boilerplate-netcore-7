@@ -1,0 +1,23 @@
+
+using Nukleus.API.Common.BaseController;
+using Nukleus.Application.Common.Services;
+using Microsoft.AspNetCore.Mvc;
+using Nukleus.Domain.Entities;
+using Nukleus.Application.{{entityName}}Module;
+using System.Net;
+
+namespace Nukleus.API.{{entityName}}Module
+{
+    [Route("[controller]")]
+    public class {{entityName}}Controller : GenericController<{{entityName}}, {{entityName}}SingleDTO, {{entityName}}SearchResultDTO, {{entityName}}SearchDTO, {{entityName}}AddDTO, {{entityName}}PatchDTO>
+    {
+        private readonly I{{entityName}}Service _service;
+        private readonly INukleusLogger _logger;
+
+        public {{entityName}}Controller(I{{entityName}}Service service, INukleusLogger logger) : base(service, logger)
+        {
+            _service = service;
+            _logger = logger;
+        }
+    }
+}

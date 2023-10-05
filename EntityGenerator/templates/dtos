@@ -1,0 +1,30 @@
+using Nukleus.Application.Common.Persistence;
+{{imports}}
+
+namespace Nukleus.Application.{{entityName}}Module
+{
+    public record {{entityName}}SingleDTO
+    {
+        {{singleFields}}
+    }
+
+    public record {{entityName}}SearchDTO
+    {
+        {{searchFields}}
+    }
+
+    public record {{entityName}}SearchResultDTO
+    {
+        {{singleFields}}
+    }
+
+    public record {{entityName}}AddDTO
+    {
+        {{addFields}}
+    }
+
+    public record {{entityName}}PatchDTO
+    {
+        {{addFields}}
+    }
+}

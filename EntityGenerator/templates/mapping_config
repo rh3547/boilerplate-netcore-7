@@ -1,0 +1,13 @@
+using Nukleus.Domain.Entities;
+using Mapster;
+
+namespace Nukleus.Application.{{entityName}}Module
+{
+    public class {{entityName}}MappingConfig : IRegister
+    {
+        public void Register(TypeAdapterConfig config)
+        {
+            
+        }
+    }
+}

@@ -1,0 +1,9 @@
+using Nukleus.Domain.SeedWork;
+
+namespace Nukleus.Domain.Entities
+{
+    public class {{entityName}} : IAggregateRoot
+    {
+        {{fields}}
+    }
+}

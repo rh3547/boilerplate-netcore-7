@@ -1,0 +1,16 @@
+using Nukleus.Infrastructure.Common.Persistence;
+using MapsterMapper;
+using Nukleus.Application.{{entityName}}Module;
+using Nukleus.Application.Common.Validation;
+using Nukleus.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+
+namespace Nukleus.Infrastructure.{{entityName}}Module
+{
+    internal class {{entityName}}Repository : EFRepository<{{entityName}}>, I{{entityName}}Repository
+    {
+        public {{entityName}}Repository(NukleusDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
+        {
+        }
+    }
+}

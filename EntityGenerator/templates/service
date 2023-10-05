@@ -1,0 +1,22 @@
+using Nukleus.Application.Common.Services;
+using Nukleus.Application.{{entityName}}Module;
+using MapsterMapper;
+using Nukleus.Infrastructure.Common.Persistence;
+using Nukleus.Domain.Entities;
+
+namespace Nukleus.Infrastructure.{{entityName}}Module
+{
+    public class {{entityName}}Service : EFService<{{entityName}}>, I{{entityName}}Service
+    {
+        private readonly INukleusLogger _logger;
+        private readonly I{{entityName}}Repository _repository;
+        private readonly IMapper _mapper;
+
+        public {{entityName}}Service(INukleusLogger logger, I{{entityName}}Repository repository, IMapper mapper) : base(logger, repository, mapper)
+        {
+            _logger = logger;
+            _repository = repository;
+            _mapper = mapper;
+        }
+    }
+}

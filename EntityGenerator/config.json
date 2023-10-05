@@ -1,0 +1,31 @@
+{
+  "projectPath": "../",
+
+  "classPath": "Nukleus.Domain/Entities",
+  "classFileName": "{{entityName}}.cs",
+
+  "dtosPath": "Nukleus.Application/{{entityName}}",
+  "dtosFileName": "{{entityName}}DTO.cs",
+  "dtosImportNamespace": "using Nukleus.Application.{{type}}Module;",
+
+  "mappingConfigPath": "Nukleus.Application/{{entityName}}",
+  "mappingConfigFileName": "{{entityName}}MappingConfig.cs",
+
+  "repositoryInterfacePath": "Nukleus.Application/{{entityName}}",
+  "repositoryInterfaceFileName": "I{{entityName}}Repository.cs",
+
+  "serviceInterfacePath": "Nukleus.Application/{{entityName}}",
+  "serviceInterfaceFileName": "I{{entityName}}Service.cs",
+
+  "efConfigurationPath": "Nukleus.Infrastructure/{{entityName}}",
+  "efConfigurationFileName": "{{entityName}}Configuration.cs",
+
+  "repositoryPath": "Nukleus.Infrastructure/{{entityName}}",
+  "repositoryFileName": "{{entityName}}Repository.cs",
+
+  "servicePath": "Nukleus.Infrastructure/{{entityName}}",
+  "serviceFileName": "{{entityName}}Service.cs",
+  
+  "controllerPath": "Nukleus.API/{{entityName}}",
+  "controllerFileName": "{{entityName}}Controller.cs"
+}

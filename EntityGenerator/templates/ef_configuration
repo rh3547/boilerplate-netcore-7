@@ -1,0 +1,15 @@
+using Nukleus.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Nukleus.Infrastructure.{{entityName}}Module
+{
+    public class {{entityName}}Configuration : IEntityTypeConfiguration<{{entityName}}>
+    {
+
+        public void Configure(EntityTypeBuilder<{{entityName}}> builder)
+        {
+            {{fields}}
+        }
+    }
+}
